@@ -158,9 +158,6 @@ func (sw *Writer) RPC(rpc *proto.RPC) {
 	if !strings.Contains(returnsType, ".") {
 		returnsType = sw.packageName + "." + returnsType
 	}
-
-	fmt.Println("rpc.ReturnsType", sw.packageName, rpc.ReturnsType)
-
 	sw.Swagger.Paths.Paths[pathName] = spec.PathItem{
 		PathItemProps: spec.PathItemProps{
 			Post: &spec.Operation{
