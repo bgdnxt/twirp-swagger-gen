@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package player;
+option go_package = "example.com/player";
+
+import "example/complex/base/base.proto";
+
+import "google/protobuf/empty.proto";
+
+message PlayerInfo {
+  string name = 1;
+}
+
+message PlayerList {
+
+  repeated PlayerInfo players = 1;
+
+  repeated base.GeneralData test2 = 2;
+}
+
+service PlayerService {
+
+  rpc Ping(base.NoopRequest) returns (base.NoopResponse) {}
+
+  rpc Info(google.protobuf.Empty) returns (PlayerInfo) {}
+
+  rpc List(google.protobuf.Empty) returns (PlayerInfo) {}
+}

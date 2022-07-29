@@ -11,6 +11,7 @@ build:
 test:
 	twirp-swagger-gen -in example/example.proto -out example/simple/example.swagger.json -host test.example.com
 	twirp-swagger-gen -in example/google_timestamp.proto -out example/simple/google_timestamp.swagger.json -host test.example.com
+	twirp-swagger-gen -in example/complex/player/player.proto -out example/complex/player.swagger.json -host player.example.com
 
 test-buf:
 	GOBIN=/usr/local/bin go install github.com/bufbuild/buf/cmd/...@v1.0.0-rc12

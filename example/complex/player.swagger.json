@@ -1,0 +1,150 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "title": "player.proto",
+    "version": "version not set"
+  },
+  "host": "player.example.com",
+  "paths": {
+    "/twirp/player.PlayerService/Info": {
+      "post": {
+        "tags": [
+          "PlayerService"
+        ],
+        "operationId": "Info",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/google.protobuf.Empty"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/player.PlayerInfo"
+            }
+          }
+        }
+      }
+    },
+    "/twirp/player.PlayerService/List": {
+      "post": {
+        "tags": [
+          "PlayerService"
+        ],
+        "operationId": "List",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/google.protobuf.Empty"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/player.PlayerInfo"
+            }
+          }
+        }
+      }
+    },
+    "/twirp/player.PlayerService/Ping": {
+      "post": {
+        "tags": [
+          "PlayerService"
+        ],
+        "operationId": "Ping",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/base.NoopRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/base.NoopResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "base.GeneralData": {
+      "description": "Fields: test1, test2, time",
+      "type": "object",
+      "properties": {
+        "test1": {
+          "type": "string"
+        },
+        "test2": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "base.NoopRequest": {
+      "type": "object"
+    },
+    "base.NoopResponse": {
+      "type": "object"
+    },
+    "player.PlayerInfo": {
+      "description": "Fields: name",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "player.PlayerList": {
+      "description": "Fields: players, test2",
+      "type": "object",
+      "properties": {
+        "players": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/player.PlayerInfo"
+          }
+        },
+        "test2": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/base.GeneralData"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package base;
+option go_package = "example.com/base";
+
+import "google/protobuf/timestamp.proto";
+
+message NoopRequest {}
+message NoopResponse {}
+
+message GeneralData {
+  string test1 = 1;
+  int32 test2 = 2;
+  google.protobuf.Timestamp time = 3;
+}
